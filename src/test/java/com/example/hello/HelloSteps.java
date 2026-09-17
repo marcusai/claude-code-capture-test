@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@CucumberContextConfiguration
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HelloSteps {
 
@@ -26,9 +28,9 @@ public class HelloSteps {
         // SpringBootTest above already starts the context on a random port.
     }
 
-    @When("I call GET /hello")
-    public void i_call_get_hello() {
-        response = restTemplate.getForEntity("http://localhost:" + port + "/hello", String.class);
+    @When("I call GET {string}")
+    public void i_call_get(String path) {
+        response = restTemplate.getForEntity("http://localhost:" + port + path, String.class);
     }
 
     @Then("I get a 200 response")

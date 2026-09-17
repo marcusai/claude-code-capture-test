@@ -14,6 +14,9 @@ Then:
 ```bash
 curl http://localhost:8080/hello
 # Hello World
+
+curl http://localhost:8080/goodbye
+# Goodbye World
 ```
 
 ## Test

@@ -31,4 +31,4 @@ Runs both the plain unit test (`HelloControllerTest`) and the Cucumber scenario
 ## Requirements
 
 - Java 17+
-- Maven (or use your IDE's bundled Maven)
+- Maven 3.9+ (or use your IDE's bundled Maven)
